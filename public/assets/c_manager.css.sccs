@@ -1,0 +1,40 @@
+#container {
+  width: 100%;
+  margin: auto;
+}
+#c-header {
+  width: 100%;
+  height: 100px;
+  background-color: lightgreen;
+}
+#c-header-inner {
+  float: left;
+  padding: 20px;
+}
+
+#c-header h1 {
+  color: white;
+}
+
+#c-header-right {
+  float: right;
+  width: 10%;
+  padding: 20px;
+}
+
+#c-header-lower {
+  float: left;
+  width: 100%;
+  background-color: lightgreen;  
+}
+
+#nav-c-sign-in {
+  float: left;
+  margin-left:50px;
+}
+
+#nav-c-registration {
+  float: left;
+  margin-left:50px;
+}
+

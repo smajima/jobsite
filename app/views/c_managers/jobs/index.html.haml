@@ -1,0 +1,14 @@
+%h2
+  = "Jobs"
+%table
+  %tr
+    %th
+      = "Title"
+    %th
+
+  - @jobs.each do |job|
+    %tr
+      %td
+        = job.title
+      %td
+        = link_to "Show", c_managers_job_path(job.id), {:target => "_blank"}

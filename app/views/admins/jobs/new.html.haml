@@ -1,0 +1,7 @@
+#new
+  = "Create New Job"
+  = form_for(@job, :url => admins_company_jobs_path) do |f|
+    = render :partial => "form", :locals => {:f => f}
+    #job-submit
+    %p
+      = f.submit

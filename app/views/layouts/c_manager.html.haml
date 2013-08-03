@@ -1,0 +1,13 @@
+!!! 5
+%html
+  %head
+    %title
+      Company Manager
+    = stylesheet_link_tag    "application", :media => "all"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+
+  %body
+    #container
+      = render 'layouts/c_manager_header'
+      = yield

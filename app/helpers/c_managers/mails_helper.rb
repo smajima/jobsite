@@ -1,0 +1,2 @@
+module CManagers::MailsHelper
+end

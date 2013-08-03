@@ -1,0 +1,31 @@
+%p
+  = "Company Name "
+  = @company.name
+
+= link_to "Create New Job", new_admins_company_job_path
+#search
+  = form_tag search_admins_company_jobs_path, :method => :get do 
+    %dl
+      %dt
+        = "Job ID"
+      %dd
+        = text_field_tag :job_id, @job_id, {:name => 'search[job_id]'}
+    = submit_tag "Search"
+
+  #job-lists
+    %table
+      %tr
+        %th
+          Job Id
+        %th
+          Title
+        %th
+      - @jobs.each do |job|
+        %tr
+          %td
+            = job.job_id
+          %td
+            = job.title
+          %td
+            = link_to 'Show', admins_company_job_path(@company.id, job.id)
+            = link_to 'Edit', edit_admins_company_job_path(@company.id, job.id)

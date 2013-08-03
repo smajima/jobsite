@@ -1,0 +1,33 @@
+= "TO:#{@user.profile.first_name} #{@user.profile.last_name}"
+= form_tag(c_managers_mails_path, :method => :post) do
+  = hidden_field_tag :apply_id, @apply.id
+  = hidden_field_tag :user_id, @user.id
+  = hidden_field_tag :direction, Mail::FROM_COMPANY, :name => 'mail[direction]'
+  = hidden_field_tag :status, Mail::UNREAD, :name => 'mail[status]'
+  %dl
+    %dd
+      = "Title"
+    %dh
+      - title = capture do
+        = text_field_tag :mail_title, @mail.title, :name => 'mail[title]' 
+      - if form_error?(:title, @mail.errors)
+        = div_error(title)        
+      - else
+        #no-error  
+          = title
+  %dl
+    %dd
+      = "Text"
+    %dh
+      - text = capture do
+        = text_area_tag :mail_text, @mail.text, :name => 'mail[text]'
+      - if form_error?(:text, @mail.errors)
+        = div_error(text)
+      - else
+        #no_error
+          = text
+
+  = submit_tag 'Send'
+= link_to "Check", "#", :id => 'mail_check'  
+#dialog
+= link_to "Cancel", "#", :id => 'c_manager_mail_cancel' 

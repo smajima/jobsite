@@ -1,0 +1,59 @@
+#job-header
+  = @job.job_id
+  = spacing
+  = @job.title
+  = spacing
+  = @job.company.name
+#job-contents
+  %table
+    %tr
+      %th
+        = "Background"
+      %td
+        = simple_format(@job.background)
+    %tr
+      %th
+        = "Detail"
+      %td
+        = simple_format(@job.detail)
+    %tr
+      %th
+        = "Hiring type"
+      %td
+        = @job.hiring_type
+    %tr
+      %th
+        = "Credentials"
+      %td
+        = simple_format(@job.credentials)
+    %tr
+      %th
+        = "Work place"
+      %td
+        = @job.work_place
+    %tr
+      %th
+        = "Work time"
+      %td
+        = @job.work_time
+    %tr
+      %th
+        = "Salary"
+      %td
+        = @job.salary
+    %tr
+      %th
+        = "Compensation"
+      %td
+        = simple_format(@job.compensation)
+    %tr
+      %th
+        = "Holidays"
+      %td
+        = simple_format(@job.holidays)
+
+= form_tag before_apply_job_path(@job.id), {:id => 'apply-form'} do
+  = hidden_field_tag :user_id, @user_id
+  = submit_tag "Apply", {:id => 'apply-submit'}
+
+  

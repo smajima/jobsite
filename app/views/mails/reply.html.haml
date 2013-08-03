@@ -1,0 +1,25 @@
+= render :partial => 'share/mypage_common'
+
+%h2
+  = "Reply to #{@company_name}"
+
+= form_for @mail do |f|
+  = f.hidden_field :apply_id
+  = f.hidden_field :direction
+  = f.hidden_field :status
+  %dl
+    %dt
+      = "Title"
+    %dd  
+      = f.text_field :title
+    %dt
+      = "Text"
+    %dd
+      = f.text_area :text
+    %dt
+      = f.submit "Send"
+    %dt
+      = link_to "Check", "#", :id => 'mail_check'  
+    %dt
+      = link_to "Cancel", "#", :id => 'user_mail_cancel'
+#dialog

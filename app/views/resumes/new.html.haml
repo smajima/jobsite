@@ -1,0 +1,19 @@
+= render :partial => "/share/mypage_common"
+%h2
+  = "Working History Registration"
+- @job_histories.each_with_index do |job_history, index|
+  - if job_history.errors
+    %ul
+      - job_history.errors.messages.values.each do |message|
+        %li
+          = "#{index+1}:#{message[0]}"
+= form_tag resume_path, {:method => :post} do
+  - @job_histories.each_with_index do |job_history, i|
+    = render :partial => "working_history", :locals => {:number => i + 1, :job_history => job_history }
+    #end
+  %button{:onclick => "addJob($('#max_num').val());return false"}
+    = "Add Job" 
+  %p   
+    = submit_tag
+
+%input{:id => 'max_num', :type => 'hidden', :value => 1}

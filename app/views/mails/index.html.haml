@@ -1,0 +1,27 @@
+= render :partial => 'share/mypage_common'
+
+%h2
+  = "Mails"
+%table
+  %tr
+    %th
+      = "Direction"
+    %th
+      = "Title"
+    %th
+      = "Company"
+    %th
+  - @applies.each do |apply|
+    - apply.mails.each do |mail|
+      %tr
+        %td
+          = mail.from_user? ? "TO" : "FROM"
+        %td
+          = link_to mail.title, mail_path(mail.id), :remote => true
+        %td
+          = apply.job.company.name
+        %td
+          - unless mail.from_user?
+            = link_to "Reply", {:controller => 'mails', :action => 'reply', :mail_id => mail.id, :apply_id => apply.id}
+
+#dialog

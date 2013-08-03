@@ -1,0 +1,11 @@
+#u-header
+  #u-header-inner
+    = link_to image_tag('user_title.png', { :border => '0', :alt => 'TOPへ'}), root_path 
+  #u-header-right
+    - if user_signed_in?
+      = link_to "My Page", entry_profile_path
+      = link_to "logout", destroy_user_session_path, :method => :delete
+    - else
+      = link_to "registration", new_user_registration_path
+      = "|"
+      = link_to "login",  new_user_session_path

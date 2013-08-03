@@ -1,0 +1,52 @@
+#company-left
+  %dl
+    %dt
+      = "Name"
+    %dd
+      = f.text_field :name
+  %dl
+    %dt
+      = "Established Date"
+    %dd
+      = f.date_select :established_date, {:discard_day => true, :start_year => Time.now.year - 30, :end_year => Time.now.year}
+  %dl
+    %dt
+      = "CEO"
+    %dd
+      = f.text_field :ceo
+  %dl
+    %dt
+      = "Capital"
+    %dd
+      = f.text_field :capital
+  %dl
+    %dt
+      = "Employee Number"
+    %dd
+      = f.text_field :employee_number
+  %dl
+    %dt
+      = "About Works"
+    %dd
+      = f.text_area :works, {:rows => 10}
+#company-right
+  %dl
+    %dt
+      = "Company Url"
+    %dd
+      = f.text_field :url
+  %dl
+    %dt
+      = "Address"
+    %dd
+      = f.text_field :address, {:size => 60}
+  %dl
+    %dt
+      = "One word"
+    %dd
+      = f.text_field :one_word
+  %dl
+    %dt
+      = "Summary"
+    %dd
+      = f.text_area :summary

@@ -1,0 +1,10 @@
+#c-header
+  #c-header-inner
+    = link_to image_tag('c_manager_title.png', { :border => '0', :alt => 'TOPへ'}), top_c_managers_top_path
+  #c-header-right
+    - if c_manager_signed_in?
+      = link_to "logout", destroy_c_manager_session_path, :method => :delete
+    - else 
+      = link_to "login", new_c_manager_session_path
+  #c-header-lower
+    = render :partial => 'c_managers/shared/header_menus'

@@ -1,0 +1,23 @@
+#search
+  = link_to "Create Company", new_admins_company_path
+  #search-input
+    = form_tag search_admins_companies_path, :method => :get do
+      = "Company Name"
+      = text_field_tag :company_name, @company_name, {:name => 'search[company_name]'}
+      = submit_tag 'Search'
+  #company-lists
+    %table
+      %tr
+        %th
+          Company Name
+        %th
+
+      - @companies.each do |company|
+        %tr
+          %td
+            = company.name
+          %td
+            = link_to 'Show', admins_company_path(company.id)
+            = link_to 'Edit', edit_admins_company_path(company.id)
+            = link_to 'Jobs', admins_company_jobs_path(company.id)
+            = link_to 'Manager', admins_company_c_manager_path(company.id)

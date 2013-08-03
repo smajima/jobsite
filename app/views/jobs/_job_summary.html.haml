@@ -1,0 +1,12 @@
+%dl
+  %dt
+    = "Job Title"
+  %dd
+    = job.title
+  %dt
+    = "Company Name"
+  %dd
+    = job.company.name
+
+
+= link_to "Show Detail", job_path(job.id), :target => "_blank"

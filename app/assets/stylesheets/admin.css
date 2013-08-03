@@ -1,0 +1,25 @@
+#container {
+  width: 100%;
+  margin: auto;
+}
+#a-header {
+  width: 100%;
+  height: 80px;
+  background-color: lightblue;
+}
+#a-header-inner {
+  float: left;
+  padding-left: 10px;
+}
+
+#a-header-right {
+  float: right;
+  width: 10%;
+  padding: 20px;
+}
+
+#a-header-lower {
+  float: left;
+  width: 100%;
+  background-color: lightblue;  
+}

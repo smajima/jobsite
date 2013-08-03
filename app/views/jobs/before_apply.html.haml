@@ -1,0 +1,26 @@
+= flash[:error]
+%br
+= @job.job_id
+= spacing
+= @job.title
+= spacing
+= @job.company.name
+
+
+- if @user.has_profile? && @user.has_job_history? && @user.can_apply?(@job)
+  - profile = @user.profile
+  %table
+    %tr
+      %th
+        = "Name"
+      %td
+        = "#{profile.first_name} #{profile.last_name}"
+    %tr
+      %th
+        = "Birthday"
+      %td
+        = profile.birthday.strftime("%Y/%m/%d")
+
+  = form_tag apply_job_path(@job.id) do
+    = hidden_field_tag :user_id, @user.id
+    = submit_tag "Sure apply"

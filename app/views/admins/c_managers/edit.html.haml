@@ -1,0 +1,7 @@
+= "Company : #{@company.name}"
+
+= form_for(@c_manager, :url => admins_company_c_manager_path(@company.id)) do |f|
+  = render :partial => "form", :locals => {:f => f}
+  #company-submit
+    = f.submit
+= link_to "Back", admins_company_c_manager_path(@company.id)

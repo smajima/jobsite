@@ -1,0 +1,31 @@
+%div(id="reg#{number}")
+  - jh = job_history
+  -if number.to_i != 1
+    %button{:onclick => "deleteJob(#{number});return false"}
+      = "Delete Job"
+  %p
+    = "company Name"
+    - c_name = jh.presence ? jh.company_name : "" 
+    = text_field_tag "job#{number}[company_name]".to_sym, c_name
+  %p
+    = "Start Month"
+    - s_year = jh.presence ? jh.start_month.try(:year) : nil
+    = select_year s_year, :start_year => 1960, :end_year => Time.now.year, :prefix => "job#{number}[s_date]", :field_name => 'year', :prompt =>  {:year => '----'}
+    - s_month = jh.presence ? jh.start_month.try(:month) : nil
+    = select_month s_month, :use_month_numbers => true, :prefix => "job#{number}[s_date]", :field_name => 'month', :prompt => {:month => '--'}
+    = "End Month"
+    - e_year = jh.presence ? jh.end_month.try(:year) : nil
+    = select_year e_year, :start_year => 1960, :end_year => Time.now.year, :prefix => "job#{number}[e_date]", :field_name => 'year', :prompt => {:year => '----'}
+    - e_month = jh.presence ? jh.end_month.try(:month) : nil
+    = select_month e_month, :use_month_numbers => true, :prefix => "job#{number}[e_date]", :field_name => 'month', :prompt => {:month => '--'}
+  %p
+    = "Working Type"
+    - h_type = jh.presence ? jh.hiring_type : 'permanent' 
+    = select_tag "job#{number}[hiring_type]".to_sym, options_for_select(JobHistory::WORK_TYPE, h_type)
+  %p
+    = "Job Detail"
+    - j_detail = jh.presence ? jh.detail : ''
+    = text_area_tag "job#{number}[detail]".to_sym, j_detail
+  = hidden_field_tag "job#{number}[number]".to_sym, "#{number}"
+
+    

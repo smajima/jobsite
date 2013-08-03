@@ -1,0 +1,34 @@
+#container {
+  width: 100%;
+  margin: auto;
+}
+#u-header {
+  width: 100%;
+  height: 100px;
+  background-color: orange;
+}
+#u-header-inner {
+  float: left;
+  padding: 20px;
+}
+
+#u-header h1 {
+  color: white;
+}
+
+#u-header-right {
+  float: right;
+  width: 10%;
+  padding: 20px;
+}
+
+#nav-u-sign-in {
+  float: left;
+  margin-left:50px;
+}
+
+#nav-u-registration {
+  float: left;
+  margin-left:50px;
+}
+

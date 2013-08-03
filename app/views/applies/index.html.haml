@@ -1,0 +1,26 @@
+= render :partial => "/share/mypage_common"
+%h2
+  = "Apply History"
+
+%table
+  %tr
+    %th
+      = "Applied Date"
+    %th
+      = "Job Title"
+    %th
+      = "Company"
+    %th
+      = "Result"
+  - @applies.each do |apply|
+    - job = apply.job
+    %tr
+      %td
+        = apply.created_at.strftime("%Y/%m/%d %H:%M")
+      %td
+        = link_to job.title, job_path(job.id), :target => "_blank"
+      %td
+        = job.company.name
+      %td
+        = apply.result ? "Applied" : "Not success"
+  

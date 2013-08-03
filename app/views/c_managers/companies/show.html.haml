@@ -1,0 +1,52 @@
+#company-left
+  %dl
+    %dt
+      = "Name"
+    %dd
+      = @company.name
+  %dl
+    %dt
+      = "Established Date"
+    %dd
+      = @company.established_date.strftime("%Y/%m")
+  %dl
+    %dt
+      = "CEO"
+    %dd
+      = @company.ceo
+  %dl
+    %dt
+      = "Capital"
+    %dd
+      = @company.capital
+  %dl
+    %dt
+      = "Employee Number"
+    %dd
+      = @company.employee_number
+  %dl
+    %dt
+      = "About Works"
+    %dd
+      = simple_format(@company.works)
+#company-right
+  %dl
+    %dt
+      = "Company Url"
+    %dd
+      = link_to @company.url, @company.url, :target => "_blank"
+  %dl
+    %dt
+      = "Address"
+    %dd
+      = @company.address
+  %dl
+    %dt
+      = "One word"
+    %dd
+      = @company.one_word
+  %dl
+    %dt
+      = "Summary"
+    %dd
+      = simple_format(@company.summary)

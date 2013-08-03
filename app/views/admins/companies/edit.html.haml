@@ -1,0 +1,9 @@
+#edit
+  = "Edit Company"
+  = form_for(@company, :url => admins_company_path) do |f|
+    = render :partial => "form", :locals => {:f => f}
+    #company-submit
+    %p
+      = f.submit
+
+

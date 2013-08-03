@@ -1,0 +1,27 @@
+= "#{@user.profile.first_name} #{@user.profile.last_name}"
+%table
+  %tr
+    %th
+      = "Direction"
+    %th
+      = "Title"
+    %th
+      = "Date"
+    %th
+  - @mails.each do |mail|
+    %tr
+      %td
+        = mail.from_user? ? "FROM" : "TO"
+      %td
+        = link_to mail.title, c_managers_mail_path(mail.id), :remote => true
+      %td
+        = mail.created_at.strftime("%Y/%m/%d %H:%M")
+      %td
+        - if mail.from_user?
+          = link_to "Reply", {:controller => :mails, :action => :reply, :apply_id => @apply.id, :mail_id => mail.id, :user_id => @user.id}
+= link_to "Send", {:controller => :mails, :action => :new_from_company, :apply_id => @apply.id, :user_id => @user.id}
+
+#close
+  = button_tag 'Close', :onclick => 'window.close()'
+  
+#dialog

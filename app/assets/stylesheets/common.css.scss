@@ -1,0 +1,16 @@
+dt {
+  float:left;
+  clear:both;
+}
+
+dd {
+  float:left;
+}
+
+.field_with_errors input {
+  background-color: lightgray;
+}
+
+.field_with_errors textarea {
+  background-color: lightgray;
+}

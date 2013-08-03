@@ -1,0 +1,21 @@
+#nav-job
+  = "New come jobs"
+#new-job-list
+  - @new_jobs.each do |job|
+    = link_to "#{job.title}", job_path(job.id)
+    = spacing
+    = "#{job.company.name}"
+    %br
+#job-categorized
+  - @categorized_number.each do |cat_info|
+    = "#{cat_info[:name]}("
+    = link_to "#{cat_info[:number]})", {:controller => :jobs, :action => :list, :id => cat_info[:id]}, {:method => :post}
+    = spacing
+#job-recent-see
+  = "Jobs see recently"
+  %br
+  - @recent_see_jobs.each do |job|
+    = link_to "#{job.title}", job_path(job.id)
+    = spacing
+    = "#{job.company.name}"
+    %br  

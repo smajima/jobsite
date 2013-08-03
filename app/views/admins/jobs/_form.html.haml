@@ -1,0 +1,80 @@
+- require 'constants'
+#job-left
+  %dl
+    %dt
+      = "Job ID"
+    %dd
+      = f.text_field :job_id
+  %dl
+    %dt
+      = "Title"
+    %dd
+      = f.text_field :title  
+  %dl
+    %dt
+      = "Occupation"
+    %dd
+      = f.text_field :occupation
+  %dl
+    %dt
+      = "Background"
+    %dd
+      = f.text_area :background, {:rows => 10}
+  %dl
+    %dt
+      = "Detail"
+    %dd
+      = f.text_area :detail, {:rows => 30}
+  %dl
+    %dt
+      = "Hiring Type"
+    %dd
+      = f.text_field :hiring_type
+#job-right
+  %dl
+    %dt
+      = "Credentials"
+    %dd
+      = f.text_area :credentials, {:rows => 5}
+  %dl
+    %dt
+      = "Work Place"
+    %dd
+      = f.text_field :work_place
+  %dl
+    %dt
+      = "Work TIme"
+    %dd
+      = f.text_field :work_time
+  %dl
+    %dt
+      = "Salary"
+    %dd
+      = f.text_field :salary
+  %dl
+    %dt
+      = "Compensation"
+    %dd
+      = f.text_field :compensation  
+  %dl
+    %dt
+      = "Holidays"
+    %dd
+      = f.text_field :holidays
+  %dl
+    %dt
+      = "Posting Start"
+    %dd
+      = f.date_select :posting_start, {:start_year => Time.now.year}
+  %dl
+    %dt
+      = "Posting End"
+    %dd
+      = f.date_select :posting_end, {:start_year => Time.now.year}
+  %dl
+    %dt
+      = "Job Category"
+    %dd
+      = f.select(:job_category, create_job_category)    
+
+

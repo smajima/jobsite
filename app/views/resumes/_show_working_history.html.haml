@@ -1,0 +1,16 @@
+- jh = job_history
+%p
+  = "Company Name"
+  = jh.company_name 
+%p
+  = "Start Month"
+  = jh.start_month.nil? ? "": jh.start_month.strftime("%Y/%m")
+  = "End Month"
+  = jh.end_month.nil? ? "" : jh.end_month.strftime("%Y/%m")
+%p
+  = "Hiring Type"
+  = jh.hiring_type 
+%p
+  = "Job Detail"
+  = jh.detail
+  
