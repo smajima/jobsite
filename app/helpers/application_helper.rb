@@ -9,6 +9,14 @@ module ApplicationHelper
     create_select(Job::JOB_CATEGORY)
   end
 
+  def create_pref_select
+    create_select(Prefucture::PREF_CODE)
+  end
+
+  def get_pref_name(id)
+    get_name(Prefucture::PREF_CODE, id)
+  end
+
   def create_select(select_array)
     created_array = []
     select_array.each { |hash|

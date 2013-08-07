@@ -4,7 +4,5 @@
   #c-header-right
     - if c_manager_signed_in?
       = link_to "logout", destroy_c_manager_session_path, :method => :delete
-    - else 
-      = link_to "login", new_c_manager_session_path
   #c-header-lower
     = render :partial => 'c_managers/shared/header_menus'

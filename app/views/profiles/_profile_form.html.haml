@@ -13,4 +13,27 @@
   %p
     = "Birthday"
     = f.date_select :birthday, {:use_month_numbers => true, :start_year => 1950, :end_year => Time.now.year - 17}
+  %p
+    = "Zip code"
+    = f.text_field :zip, {:class => "zipcode"}
+    -#= link_to "Search Address", "#", :id => 'zipconv'
+    %input{:type => 'buttton', :id => 'zipconv', :value => 'Search Address'}
+  %p
+    = "Pref"
+    = f.select :pref_code, create_pref_select, {}, {:class => 'pref_code'}
+  %p
+    = "Address 0 (city, words)"
+    = f.text_field :address0, {:class => 'address0'}
+  %p
+    = "Address 1"
+    = f.text_field :address1, {:class => 'address1'}
+  %p
+    = "Address 2"
+    = f.text_field :address2
+  %p
+    = "Phone"
+    = f.text_field :phone
+  %p
+    = "Cell Phone"
+    = f.text_field :cell_phone
   =f.submit

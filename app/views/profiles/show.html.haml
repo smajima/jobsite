@@ -10,5 +10,25 @@
 %p
   = "Birthday"
   = @profile.birthday.strftime("%Y/%m/%d")
-
+%p
+  = "Zip Code"
+  = @profile.zip
+%p
+  = "Prefucture"
+  = get_pref_name(@profile.pref_code)
+%p
+  = "Address 0"
+  = @profile.address0
+%p
+  = "Address 1"
+  = @profile.address1
+%p
+  = "Address 2"
+  = @profile.address2
+%p
+  = "Phone"
+  = @profile.phone
+%p
+  = "Cell Phone"
+  = @profile.cell_phone  
 = link_to "Edit", edit_profile_path
