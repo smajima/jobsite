@@ -1,0 +1,2 @@
+module CManagers::AppliesHelper
+end
